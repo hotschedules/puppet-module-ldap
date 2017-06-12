@@ -10,6 +10,7 @@ class ldap::nslcd (
   $bind_dn        = $::ldap::bind_dn,
   $bind_pass      = $::ldap::bind_pass,
   $idle_timelimit = $::ldap::idle_timelimit,
+  $people_dn      = "ou=People,${::ldap::base_dn}",
 ) {
 
   validate_bool     ( $enabled        )
@@ -21,6 +22,7 @@ class ldap::nslcd (
   validate_string   ( $bind_dn        )
   validate_string   ( $bind_pass      )
   validate_integer  ( $idle_timelimit )
+  validate_string   ( $people_dn      )
 
   clabs::module::init { $name: }
 

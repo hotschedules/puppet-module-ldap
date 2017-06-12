@@ -17,3 +17,6 @@ bindpw        <%= @bind_pass %>
 
 # Added for INFRA-1478 - ELB disconnects causing lots of errors in logs
 idle_timelimit <%= @idle_timelimit %>
+
+# Added for INFRA-4586 - pam ldap shouldn't look at disabled organizational units
+base passwd <%= @people_dn %>
