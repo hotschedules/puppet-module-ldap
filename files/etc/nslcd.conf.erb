@@ -20,3 +20,6 @@ idle_timelimit <%= @idle_timelimit %>
 
 # Added for INFRA-4586 - pam ldap shouldn't look at disabled organizational units
 base passwd <%= @people_dn %>
+
+# Added for INFRA-5153 - pam ldap should look at the services organization unit
+base passwd <%= @services_dn %>
