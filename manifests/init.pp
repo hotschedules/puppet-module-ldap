@@ -25,7 +25,7 @@ class ldap(
   validate_string   ( $security       )
   validate_string   ( $cert_ca        )
   validate_string   ( $bind_dn        )
-  validate_string   ( $bind_Pass      )
+  validate_string   ( $bind_pass      )
   validate_integer  ( $idle_timelimit )
 
   clabs::module::init { $name: }
