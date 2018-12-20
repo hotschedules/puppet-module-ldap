@@ -1,13 +1,20 @@
-# vim: tabstop=2 expandtab shiftwidth=2 softtabstop=2 foldmethod=marker
-#
-# WARNING: This file is managed by puppet
-#
-base          <%= @base_dn %>
-uri           ldap://<%= @server %>/
-ssl           start_tls
-tls_cacertdir /etc/openldap/cacerts
-
-ldap_version  3
-port          389
-rootbinddn    <%= @bind_dn %>
-
+<% def emit_delimited(key,val,delimiter=' ') -%>
+<%   ret_val = '' -%>
+<%   if key.nil? -%>
+<%     key = '' -%>
+<%     delimiter = '' -%>
+<%   end -%>
+<%   if val.is_a?(Hash) -%>
+<%     sorted_keys = val.keys.sort -%>
+<%     sorted_keys.each do |k| -%>
+<%       ret_val += key.to_s + delimiter + emit_delimited(k,datum[k]) -%>
+<%     end -%>
+<%   elsif val.is_a?(Array) -%>
+<%     val.each do |e| -%>
+<%       ret_val += emit_delimited(key,e) -%>
+<%     end -%>
+<%   else -%>
+<%     ret_val += key.to_s + delimiter + val.to_s -%>
+<%   end -%>
+<% end -%>
+<%= emit_delimited(@pam_ldap_conf) %>
