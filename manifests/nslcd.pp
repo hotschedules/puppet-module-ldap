@@ -5,13 +5,13 @@ class ldap::nslcd (
   $svc            = 'nslcd',
   $user           = 'nslcd',
   $group          = 'ldap',
+  $nslcd_conf     = {},
 ) {
 
   validate_bool     ( $enabled        )
   validate_string   ( $svc            )
   validate_string   ( $user           )
   validate_string   ( $group          )
-  validate_hash     ( $nslcd_conf     )
 
   clabs::module::init { $name: }
 
