@@ -16,6 +16,10 @@ class ldap(
   $base_dn        = undef,
   $security       = 'tls',
   $cert_ca        = undef,
+  $ldap_conf      = {},
+  $pam_ldap_conf  = {},
+  $pam_ldap_secret = '',
+  $nslcd_conf     = {},
 ) {
 
   validate_array    ( $packages       )
