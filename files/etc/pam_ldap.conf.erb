@@ -7,7 +7,7 @@
 <%   if val.is_a?(Hash) -%>
 <%     sorted_keys = val.keys.sort -%>
 <%     sorted_keys.each do |k| -%>
-<%       ret_val += key.to_s + delimiter + emit_delimited(k,datum[k]) -%>
+<%       ret_val += key.to_s + delimiter + emit_delimited(k,val[k]) -%>
 <%     end -%>
 <%   elsif val.is_a?(Array) -%>
 <%     val.each do |e| -%>
