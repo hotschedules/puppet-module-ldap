@@ -16,5 +16,6 @@
 <%   else -%>
 <%     ret_val += key.to_s + delimiter + val.to_s + record_delimiter -%>
 <%   end -%>
+<%   return ret_val -%>
 <% end -%>
 <%= emit_delimited(nil,@pam_ldap_conf) %>
