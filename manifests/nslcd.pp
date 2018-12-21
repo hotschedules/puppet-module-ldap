@@ -5,7 +5,7 @@ class ldap::nslcd (
   $svc            = 'nslcd',
   $user           = 'nslcd',
   $group          = 'ldap',
-  $nslcd_conf     = {},
+  $nslcd_conf     = $::ldap::nslcd_conf,
 ) {
 
   validate_bool     ( $enabled        )
