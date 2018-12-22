@@ -16,10 +16,7 @@ class ldap(
   $base_dn        = undef,
   $security       = 'tls',
   $cert_ca        = undef,
-  $ldap_conf      = {},
-  $pam_ldap_conf  = {},
   $pam_ldap_secret = '',
-  $nslcd_conf     = {},
 ) {
 
   validate_array    ( $packages       )
@@ -28,6 +25,9 @@ class ldap(
     fail("Parameter 'cert_ca' is required.")
   }
   validate_string   ( $cert_ca        )
+
+  $ldap_conf = hiera_hash('ldap::ldap_conf',{})
+  $pam_ldap_conf = hiera_hash('ldap::pam_ldap_conf',{})
 
   clabs::module::init { $name: }
 
